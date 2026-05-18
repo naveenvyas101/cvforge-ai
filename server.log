@@ -1,0 +1,5 @@
+npm error Missing script: "dev"
+npm error
+npm error To see a list of scripts, run:
+npm error   npm run
+npm error A complete log of this run can be found in: /home/vercel-sandbox/.npm/_logs/2026-05-18T08_24_49_389Z-debug-0.log
