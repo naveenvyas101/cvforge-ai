@@ -206,12 +206,10 @@ const KwCloud=({kws,matched})=>{if(!kws?.length)return null;return(<div style={{
 /* ─── API ─────────────────────────────────────────────── */
 async function callClaude(messages,system,maxTokens=5000){
   const r=await fetch("/api/generate", {
-  method: "POST",
-  body: JSON.stringify({
-    messages,
-    system
-  })
-}),{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({model:"claude-sonnet-4-20250514",max_tokens:maxTokens,system,messages})});
+    method: "POST",
+    headers:{"Content-Type":"application/json"},
+    body:JSON.stringify({model:"claude-sonnet-4-20250514",max_tokens:maxTokens,system,messages})
+  });
   const d=await r.json();
   if(!r.ok)throw new Error(d.error?.message||`API ${r.status}`);
   return d.content?.map(b=>b.text||"").join("")||"";
